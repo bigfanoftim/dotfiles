@@ -4,12 +4,15 @@ return require('packer').startup(function()
 
 	-- colorscheme
 	use 'morhetz/gruvbox'
+	use 'ayu-theme/ayu-vim'
 
 	-- Syntax
   use 'jparise/vim-graphql'
   use 'pangloss/vim-javascript'
   use 'vim-python/python-syntax'
 	use 'Vimjas/vim-python-pep8-indent'
+	use 'nathanaelkane/vim-indent-guides'
+	use 'nanotee/sqls.nvim'
 
 	-- Neovim
   use {
@@ -20,6 +23,8 @@ return require('packer').startup(function()
 		'neoclide/coc.nvim', 
 		branch = 'release'
 	}
+	use 'neovim/nvim-lspconfig'
+
 
 	-- NerdTree
 	use 'preservim/nerdtree'

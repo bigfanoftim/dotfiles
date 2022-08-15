@@ -5,7 +5,6 @@ vim.o.tabstop = 2
 vim.o.shiftwidth = 2
 vim.o.relativenumber = true
 
-
 require('packer-plugins')
 
 vim.cmd([[
@@ -14,11 +13,13 @@ set noundofile
 set clipboard=unnamed
 set nobackup
 set noswapfile
+set cursorline
+set expandtab
+set mouse=a
 
-set background=dark
-let g:gruvbox_bold=1
-let g:gruvbox_contrast_dark='hard'
-colorscheme gruvbox
+set termguicolors
+let ayucolor="mirage"
+colorscheme ayu
 
 nmap nt :NERDTreeToggle<CR>
 noremap <C-h> <C-w>h
@@ -52,7 +53,26 @@ nmap to :Topen<CR>
 nmap tc :Tclose<CR>
 tnoremap <Esc> <C-\><C-n>
 let g:neoterm_default_mod = 'botright'
-let g:neoterm_size = 10
+let g:neoterm_size = 18
+
+
+" Use <cr> to confirm completion
+inoremap <expr> <cr> coc#pum#visible() ? coc#pum#confirm() : "\<CR>"
+
+" Use <Tab> to navigate the completion list
+inoremap <expr> <Tab> coc#pum#visible() ? coc#pum#next(1) : "\<Tab>"
+
+function! SetupCommandAbbrs(from, to)
+  exec 'cnoreabbrev <expr> '.a:from
+        \ .' ((getcmdtype() ==# ":" && getcmdline() ==# "'.a:from.'")'
+        \ .'? ("'.a:to.'") : ("'.a:from.'"))'
+endfunction
+
+call SetupCommandAbbrs('C', 'CocConfig')
+
+au BufNewFile,BufRead Jenkinsfile setf groovy
+
+" let g:indent_guides_enable_on_vim_startup = 1
 
 ]])
 
@@ -62,3 +82,11 @@ require'nvim-treesitter.configs'.setup {
 		enable = true
 	}
 }
+
+require('lspconfig').sqls.setup{
+    on_attach = function(client, bufnr)
+        require('sqls').on_attach(client, bufnr)
+    end
+}
+
+vim.cmd("hi Visual guifg=Black guibg=White gui=none")
