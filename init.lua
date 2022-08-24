@@ -53,7 +53,7 @@ nmap to :Topen<CR>
 nmap tc :Tclose<CR>
 tnoremap <Esc> <C-\><C-n>
 let g:neoterm_default_mod = 'botright'
-let g:neoterm_size = 18
+let g:neoterm_size = 12
 
 
 " Use <cr> to confirm completion
@@ -74,6 +74,10 @@ au BufNewFile,BufRead Jenkinsfile setf groovy
 
 " let g:indent_guides_enable_on_vim_startup = 1
 
+" JavaScript SETTINGS
+" autocmd FileType javascript setlocal shiftwidth=2 tabstop=2
+au FileType javascript nmap <buffer> \r :!node %<CR>
+au FileType typescript nmap <buffer> \r :!ts-node %<CR>
 ]])
 
 require'nvim-treesitter.configs'.setup {
@@ -83,10 +87,15 @@ require'nvim-treesitter.configs'.setup {
 	}
 }
 
-require('lspconfig').sqls.setup{
-    on_attach = function(client, bufnr)
-        require('sqls').on_attach(client, bufnr)
-    end
-}
+require("nvim-lsp-installer").setup({
+    automatic_installation = true, -- automatically detect which servers to install (based on which servers are set up via lspconfig)
+    ui = {
+        icons = {
+            server_installed = "✓",
+            server_pending = "➜",
+            server_uninstalled = "✗"
+        }
+    }
+})
 
 vim.cmd("hi Visual guifg=Black guibg=White gui=none")
