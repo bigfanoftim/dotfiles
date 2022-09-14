@@ -45,9 +45,18 @@ set laststatus=2 " turn on bottom bar
 let g:airline#extensions#branch#enabled = 1
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#left_sep = ' '
-nnoremap <leader>q :bp<CR>
-nnoremap <leader>w :bn<CR>
-nnoremap <leader>e :bd<CR>
+nnoremap <leader>z :bp<CR>
+nnoremap <leader>x :bp <BAR> bd #<CR>
+nnoremap <leader>c :bn<CR>
+
+nnoremap <leader>v :vs<CR>
+nnoremap <leader>s :sp<CR>
+
+nnoremap <leader>w :w<CR>
+nnoremap <leader>q :q!<CR>
+nnoremap <leader>a :wqa!<CR>
+nnoremap <leader>e :e!<CR>
+nnoremap <leader>gd :Git difftool<CR>
 
 nmap to :Topen<CR>
 nmap tc :Tclose<CR>
@@ -78,6 +87,9 @@ au BufNewFile,BufRead Jenkinsfile setf groovy
 " autocmd FileType javascript setlocal shiftwidth=2 tabstop=2
 au FileType javascript nmap <buffer> \r :!node %<CR>
 au FileType typescript nmap <buffer> \r :!ts-node %<CR>
+
+" toggle parameter
+inoremap <C-P> <C-\><C-O>:call CocActionAsync('showSignatureHelp')<cr>
 ]])
 
 require'nvim-treesitter.configs'.setup {

@@ -46,6 +46,9 @@ return require('packer').startup(function()
   use 'vim-airline/vim-airline'
   use 'vim-airline/vim-airline-themes'
 
+  -- terraform
+  use 'hashivim/vim-terraform'
+
   -- more
   use 'jiangmiao/auto-pairs'
   use 'kassio/neoterm'
@@ -57,6 +60,7 @@ return require('packer').startup(function()
     setup = function() vim.g.mkdp_filetypes = { "markdown" } end, 
     ft = { "markdown" }, 
   })
+  use 'wakatime/vim-wakatime'
 
 end)
 
