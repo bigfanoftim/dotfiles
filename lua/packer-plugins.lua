@@ -3,16 +3,19 @@ return require('packer').startup(function()
   use 'wbthomason/packer.nvim'
 
 	-- colorscheme
-  use 'morhetz/gruvbox'
+  -- use 'morhetz/gruvbox'
   use 'ayu-theme/ayu-vim'
+  
+  -- devicons
+  use 'ryanoasis/vim-devicons'
 
 	-- Syntax
   use 'jparise/vim-graphql'
   use 'pangloss/vim-javascript'
   use 'vim-python/python-syntax'
   use 'Vimjas/vim-python-pep8-indent'
-  use 'nathanaelkane/vim-indent-guides'
   use 'nanotee/sqls.nvim'
+  -- use 'nathanaelkane/vim-indent-guides'
 
 	-- Neovim
   use {
@@ -30,6 +33,8 @@ return require('packer').startup(function()
 
   -- NerdTree
   use 'preservim/nerdtree'
+  use 'bryanmylee/vim-colorscheme-icons'
+  -- use 'tiagofumo/vim-nerdtree-syntax-highlight' // BAD :(
 
   -- junegunn
   use 'junegunn/vim-easy-align'
@@ -48,6 +53,10 @@ return require('packer').startup(function()
 
   -- terraform
   use 'hashivim/vim-terraform'
+
+  -- frontend
+  use 'mattn/emmet-vim'
+  use 'manzeloth/live-server'
 
   -- more
   use 'jiangmiao/auto-pairs'

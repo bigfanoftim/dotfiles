@@ -8,6 +8,7 @@ vim.o.relativenumber = true
 require('packer-plugins')
 
 vim.cmd([[
+set encoding=UTF-8
 set number
 set noundofile
 set clipboard=unnamed
@@ -64,6 +65,9 @@ tnoremap <Esc> <C-\><C-n>
 let g:neoterm_default_mod = 'botright'
 let g:neoterm_size = 12
 
+let g:user_emmet_install_global = 0
+autocmd FileType html,css EmmetInstall
+let g:user_emmet_leader_key='<C-Z>'
 
 " Use <cr> to confirm completion
 inoremap <expr> <cr> coc#pum#visible() ? coc#pum#confirm() : "\<CR>"
