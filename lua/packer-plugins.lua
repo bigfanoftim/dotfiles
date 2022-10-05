@@ -3,8 +3,18 @@ return require('packer').startup(function()
   use 'wbthomason/packer.nvim'
 
 	-- colorscheme
-  -- use 'morhetz/gruvbox'
+  use 'morhetz/gruvbox'
   use 'ayu-theme/ayu-vim'
+  use {
+    'luisiacc/gruvbox-baby',
+    branch = 'main'
+  }
+  use 'mhartington/oceanic-next'
+  use {
+    'nvim-telescope/telescope.nvim', tag = '0.1.0',
+    -- or                          , branch = '0.1.x',
+    requires = { {'nvim-lua/plenary.nvim'} }
+  }
   
   -- devicons
   use 'ryanoasis/vim-devicons'
@@ -70,6 +80,7 @@ return require('packer').startup(function()
     ft = { "markdown" }, 
   })
   use 'wakatime/vim-wakatime'
+	use { 'vimwiki/vimwiki', branch = 'dev' }
 
 end)
 
