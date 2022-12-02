@@ -3,21 +3,19 @@ return require('packer').startup(function()
   use 'wbthomason/packer.nvim'
 
 	-- colorscheme
-  use 'morhetz/gruvbox'
   use 'ayu-theme/ayu-vim'
-  use {
-    'luisiacc/gruvbox-baby',
-    branch = 'main'
-  }
-  use 'mhartington/oceanic-next'
   use {
     'nvim-telescope/telescope.nvim', tag = '0.1.0',
     -- or                          , branch = '0.1.x',
     requires = { {'nvim-lua/plenary.nvim'} }
   }
+  use ({ 'projekt0n/github-nvim-theme' })
+  use 'marko-cerovac/material.nvim'
+  use 'sainnhe/sonokai'
   
   -- devicons
   use 'ryanoasis/vim-devicons'
+  use 'ful1e5/onedark.nvim'
 
 	-- Syntax
   use 'jparise/vim-graphql'
@@ -25,6 +23,7 @@ return require('packer').startup(function()
   use 'vim-python/python-syntax'
   use 'Vimjas/vim-python-pep8-indent'
   use 'nanotee/sqls.nvim'
+  -- use 'Yggdroot/indentLine'
   -- use 'nathanaelkane/vim-indent-guides'
 
 	-- Neovim
@@ -40,6 +39,7 @@ return require('packer').startup(function()
       "williamboman/nvim-lsp-installer",
       "neovim/nvim-lspconfig",
   }
+  use { "williamboman/mason.nvim" } -- next generation version of nvim-lsp-installer
 
   -- NerdTree
   use 'preservim/nerdtree'
@@ -81,6 +81,26 @@ return require('packer').startup(function()
   })
   use 'wakatime/vim-wakatime'
 	use { 'vimwiki/vimwiki', branch = 'dev' }
+  use {
+    "folke/trouble.nvim",
+    requires = "kyazdani42/nvim-web-devicons",
+    config = function()
+      require("trouble").setup {
+        icons = false,
+        fold_open = "v", -- icon used for open folds
+        fold_closed = ">", -- icon used for closed folds
+        indent_lines = false, -- add an indent guide below the fold icons
+        signs = {
+          -- icons / text used for a diagnostic
+          error = "error",
+          warning = "warn",
+          hint = "hint",
+          information = "info"
+        },
+        use_diagnostic_signs = false -- enabling this will use the signs defined in your lsp client
+      }
+    end
+  }
 
 end)
 

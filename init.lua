@@ -5,6 +5,7 @@ vim.o.tabstop = 2
 vim.o.shiftwidth = 2
 vim.o.relativenumber = true
 
+
 require('packer-plugins')
 
 vim.cmd([[
@@ -18,15 +19,24 @@ set cursorline
 set expandtab
 set mouse=a
 
+colorscheme github_dark_default
+
 " {{ ayu
 " set termguicolors
 " let ayucolor="mirage"
 " colorscheme ayu
 " }}
 
-let g:gruvbox_baby_background_color="dark"
-let g:gruvbox_baby_telescope_theme=1
-colorscheme gruvbox-baby
+" let g:gruvbox_baby_background_color="dark"
+" let g:gruvbox_baby_telescope_theme=1
+" colorscheme gruvbox-baby
+
+" IndentLine {{
+" let g:indentLine_char = '|'
+" let g:indentLine_first_char = '|'
+" let g:indentLine_showFirstIndentLevel = 0
+" let g:indentLine_setColors = 0
+" }}
 
 nnoremap <leader>ff <cmd>Telescope find_files<cr>
 nnoremap <leader>fg <cmd>Telescope live_grep<cr>
@@ -66,10 +76,11 @@ nnoremap <leader>c :bn<CR>
 nnoremap <leader>v :vs<CR>
 nnoremap <leader>s :sp<CR>
 
-nnoremap <leader>w :w<CR>
-nnoremap <leader>q :q!<CR>
-nnoremap <leader>a :wqa!<CR>
-nnoremap <leader>e :e!<CR>
+nnoremap <leader>w :w <CR>
+nnoremap <leader>q :q! <CR>
+nnoremap <leader>a :qa! <CR>
+nnoremap <leader>e :e! <CR>
+
 nnoremap <leader>ga :Git add .<CR>
 nnoremap <leader>gc :Git commit<CR>
 nnoremap <leader>gs :Git status<CR>
@@ -113,21 +124,26 @@ au FileType typescript nmap <buffer> \r :!ts-node %<CR>
 inoremap <C-o> <C-\><C-O>:call CocActionAsync('showSignatureHelp')<cr>
 
 " {{ John Grib님의 vim-wiki config 
-" 로컬 리더 키 설정은 취향이니 각자 마음에 드는 키로 설정한다
 " let maplocalleader = "\\"
 
-"1번 위키(공개용)와 2번 위키(개인용)
 let g:vimwiki_list = [
     \{
     \   'path': '~/wiki',
     \   'ext' : '.md',
     \   'diary_rel_path': '.',
     \},
-    \
+    \{
+    \   'path': '~/dev-wiki',
+    \   'ext' : '.md',
+    \   'diary_rel_path': '.',
+    \},
 \]
 
 " vimwiki의 conceallevel 을 끄는 쪽이 좋다
 let g:vimwiki_conceallevel = 0
+" let g:indentLine_fileTypeExclude = ['markdown']
+autocmd FileType markdown let g:indentLine_enabled=0
+let g:vimwiki_global_ext = 0
 
 " 자주 사용하는 vimwiki 명령어에 단축키를 취향대로 매핑해둔다
 command! WikiIndex :VimwikiIndex
@@ -135,6 +151,8 @@ nmap <leader>vw <Plug>VimwikiIndex
 nmap <leader>vi <Plug>VimwikiDiaryIndex
 nmap <leader>vm <Plug>VimwikiMakeDiaryNote
 nmap <leader>vt :VimwikiTable<CR>
+nmap <leader>vrnl :VimwikiRenameLink<CR>
+nmap <leader>vrnf :VimwikiRenameLink<CR>
 
 " F4 키를 누르면 커서가 놓인 단어를 위키에서 검색한다.
 nnoremap <F4> :execute "VWS /" . expand("<cword>") . "/" <Bar> :lopen<CR>
@@ -161,5 +179,49 @@ require("nvim-lsp-installer").setup({
         }
     }
 })
+
+-- this part is telling Neovim to use the lsp server
+local servers = { 'pyright', 'tsserver' }
+for _, lsp in pairs(servers) do
+    require('lspconfig')[lsp].setup {
+        on_attach = on_attach,
+        flags = {
+          debounce_text_changes = 150,
+        }
+    }
+end
+
+require("mason").setup({
+  ui = {
+    icons = {
+      package_installed = "✓",
+      package_pending = "➜",
+      package_uninstalled = "✗"
+    }
+  }
+})
+
+local opts = { noremap=true, silent=true }
+vim.keymap.set('n', '<leader>vd', vim.diagnostic.open_float, opts)
+
+-- folke/trouble.nvim keybindings
+vim.keymap.set("n", "<leader>xx", "<cmd>TroubleToggle<cr>",
+  {silent = true, noremap = true}
+)
+vim.keymap.set("n", "<leader>xw", "<cmd>TroubleToggle workspace_diagnostics<cr>",
+  {silent = true, noremap = true}
+)
+vim.keymap.set("n", "<leader>xd", "<cmd>TroubleToggle document_diagnostics<cr>",
+  {silent = true, noremap = true}
+)
+vim.keymap.set("n", "<leader>xl", "<cmd>TroubleToggle loclist<cr>",
+  {silent = true, noremap = true}
+)
+vim.keymap.set("n", "<leader>xq", "<cmd>TroubleToggle quickfix<cr>",
+  {silent = true, noremap = true}
+)
+vim.keymap.set("n", "gR", "<cmd>TroubleToggle lsp_references<cr>",
+  {silent = true, noremap = true}
+)
 
 vim.cmd("hi Visual guifg=Black guibg=White gui=none")
