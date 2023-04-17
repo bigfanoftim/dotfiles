@@ -29,3 +29,10 @@ opt.splitright = true
 opt.splitbelow = true
 
 opt.iskeyword:append("-")
+
+vim.cmd([[
+  augroup Jenkinsfile
+    autocmd!
+    autocmd BufNewFile,BufRead Jenkinsfile setf groovy
+  augroup END
+]])

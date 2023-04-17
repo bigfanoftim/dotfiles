@@ -32,7 +32,7 @@ gruvbox.setup({
     light4 = "#F8E8CA",
     -- dark0 = "#3c3836",
     -- dark1 = "#504945",
-    bright_green = "#F8E8CA",
+    bright_green = "#8EC07C",
     -- bright_green = "#aca586",
     bright_blue = "#D0B88D"
     -- bright_blue = "#D0B88D"

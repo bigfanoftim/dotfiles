@@ -2,10 +2,10 @@ vim.g.mapleader = " "
 
 local keymap = vim.keymap
 
-keymap.set("n", "<leader>ww", ":w<CR>")
-keymap.set("n", "<leader>q", ":q<CR>")
-keymap.set("n", "<leader>wq", ":wq<CR>")
-keymap.set("n", "<leader>aq", ":qa<CR>")
+-- keymap.set("n", "<leader>ww", ":w<CR>")
+-- keymap.set("n", "<leader>q", ":q<CR>")
+-- keymap.set("n", "<leader>wq", ":wq<CR>")
+-- keymap.set("n", "<leader>aq", ":qa<CR>")
 
 keymap.set("n", "<leader>pv", vim.cmd.Ex)
 

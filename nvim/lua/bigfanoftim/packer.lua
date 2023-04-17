@@ -49,8 +49,7 @@ return require('packer').startup(function(use)
   }
   
   -- etc
-  use {
-    'windwp/nvim-autopairs',
-  }
+  use 'windwp/nvim-autopairs'
+  use 'Vonr/align.nvim'
 
 end)
