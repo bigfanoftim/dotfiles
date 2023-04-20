@@ -15,4 +15,7 @@ nvimtree.setup({
   filters = {
     dotfiles = false,
   },
+  view = {
+    width = 45
+  }
 })
