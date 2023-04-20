@@ -29,7 +29,7 @@ return require('packer').startup(function(use)
 
   -- LSP config & plugins
   use 'neovim/nvim-lspconfig'
-  use ('williamboman/mason.nvim', { run = ":MasonUpdate" })
+  use('williamboman/mason.nvim', { run = ":MasonUpdate" })
 
   -- Git related plugins
   use 'tpope/vim-fugitive'
@@ -39,17 +39,13 @@ return require('packer').startup(function(use)
   use 'numToStr/Comment.nvim'
 
   -- Autocompletion
-  use {
-    'hrsh7th/nvim-cmp',
-    requires = {
-      'hrsh7th/cmp-nvim-lsp',
-      'L3MON4D3/LuaSnip',
-      'saadparwaiz1/cmp_luasnip'
-    }
-  }
-  
+  use 'hrsh7th/nvim-cmp'
+  use 'hrsh7th/cmp-nvim-lsp'
+  use 'L3MON4D3/LuaSnip'
+  use 'saadparwaiz1/cmp_luasnip'
+  use 'rafamadriz/friendly-snippets'
+
   -- etc
   use 'windwp/nvim-autopairs'
   use 'Vonr/align.nvim'
-
 end)
