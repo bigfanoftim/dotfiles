@@ -5,9 +5,10 @@ return require('packer').startup(function(use)
 
   -- Fuzzy finder over lists
   use {
-    'nvim-telescope/telescope.nvim', tag = '0.1.1',
-    requires = { 'nvim-lua/plenary.nvim' }
+    'nvim-telescope/telescope.nvim', tag = '0.1.1'
   }
+  use 'nvim-lua/plenary.nvim'
+  use 'nvim-telescope/telescope-file-browser.nvim'
 
   -- File Exploreer For Neovim
   use 'nvim-tree/nvim-tree.lua'
