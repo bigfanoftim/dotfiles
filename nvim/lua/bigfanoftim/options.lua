@@ -8,7 +8,7 @@ opt.shiftwidth = 2
 opt.expandtab = true
 opt.si = true
 opt.ai = true
-opt.scrolloff = 10
+opt.scrolloff = 99
 
 opt.wrap = false
 

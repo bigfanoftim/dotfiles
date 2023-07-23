@@ -9,7 +9,7 @@ local keymap = vim.keymap
 
 keymap.set("n", "<leader>pv", vim.cmd.Ex)
 
-keymap.set("n", "x", '"_x"')
+-- keymap.set("n", "x", '"_x"')
 
 keymap.set("n", "dw", 'vb"_d')
 

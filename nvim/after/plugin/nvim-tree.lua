@@ -16,6 +16,6 @@ nvimtree.setup({
     dotfiles = false,
   },
   view = {
-    width = 45
+    width = 60
   }
 })

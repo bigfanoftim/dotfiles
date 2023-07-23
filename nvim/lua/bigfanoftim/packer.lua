@@ -31,6 +31,7 @@ return require('packer').startup(function(use)
   -- LSP config & plugins
   use 'neovim/nvim-lspconfig'
   use('williamboman/mason.nvim', { run = ":MasonUpdate" })
+  use 'mfussenegger/nvim-jdtls'
 
   -- Git related plugins
   use 'tpope/vim-fugitive'
