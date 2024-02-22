@@ -7,11 +7,21 @@ return {
   --     transparent = true,
   --   }
   -- end,
+
   { "wittyjudge/gruvbox-material.nvim" },
   {
     "LazyVim/LazyVim",
     opts = {
       colorscheme = "gruvbox-material",
+    },
+  },
+
+  { "ellisonleao/gruvbox.nvim" },
+  {
+    "LazyVim/LazyVim",
+    opts = {
+      colorscheme = "gruvbox",
+      transparent = true,
     },
   },
 }
