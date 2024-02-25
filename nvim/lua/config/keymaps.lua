@@ -30,9 +30,12 @@ keymap.set("n", "<C-w><up>", "<C-w>+")
 keymap.set("n", "<C-w><down>", "<C-w>-")
 
 -- fix move up & down
-vim.keymap.del("n", "<A-j>")
-vim.keymap.del("n", "<A-k>")
-vim.keymap.del("i", "<A-j>")
-vim.keymap.del("i", "<A-k>")
-vim.keymap.del("v", "<A-j>")
-vim.keymap.del("v", "<A-k>")
+keymap.del("n", "<A-j>")
+keymap.del("n", "<A-k>")
+keymap.del("i", "<A-j>")
+keymap.del("i", "<A-k>")
+keymap.del("v", "<A-j>")
+keymap.del("v", "<A-k>")
+
+-- new tab with current window
+keymap.set("n", "<leader><Tab>n", ":lua vim.api.nvim_command(':tabnew %')<CR>", opts)
