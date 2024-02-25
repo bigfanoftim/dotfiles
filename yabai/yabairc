@@ -18,5 +18,6 @@ yabai -m config mouse_action2 resize # right click + drag
 yabai -m mouse_drop_action swap
 
 # disable specific apps
-yabai -m rule --add-app="^System Settings$" manage=off
-yabai -m rule --add-app="^Karabiner-Elements$" manage=off
+yabai -m rule --add app="^System Settings$" manage=off
+yabai -m rule --add app="^Karabiner-Elements$" manage=off
+yabai -m rule --add app="^KakaoTalk$" manage=off
