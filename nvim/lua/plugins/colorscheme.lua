@@ -1,12 +1,10 @@
 return {
-  { "ellisonleao/gruvbox.nvim" },
-  { "catppuccin/nvim" },
-
   {
-    "LazyVim/LazyVim",
-    opts = function(_, opts)
-      opts.colorscheme = "gruvbox"
-      opts.transparent = true
+    "ellisonleao/gruvbox.nvim",
+    lazy = false,
+    priority = 1000,
+    config = function()
+      vim.cmd([[colorscheme gruvbox]])
     end,
   },
 }
