@@ -6,6 +6,9 @@ alias vi="nvim"
 
 starship init fish | source
 
+# tfenv configs
+export PATH="$HOME/.tfenv/bin:$PATH"
+
 export LC_ALL=ko_KR.UTF-8
 export LANG=ko_KR.UTF-8
 
