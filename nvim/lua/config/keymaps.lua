@@ -22,6 +22,7 @@ keymap.set("n", "<s-tab>", ":tabprev<Return>", opts)
 -- Split window
 keymap.set("n", "ss", ":split<Return>", opts)
 keymap.set("n", "sv", ":vsplit<Return>", opts)
+keymap.set("n", "sx", ":q<Return>", opts)
 
 -- Resize window
 keymap.set("n", "<C-w><left>", "<C-w><")
