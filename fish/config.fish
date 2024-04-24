@@ -3,6 +3,7 @@ if status is-interactive
 end
 
 alias vi="nvim"
+alias ld="lazydocker"
 
 starship init fish | source
 
