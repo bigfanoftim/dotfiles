@@ -6,6 +6,7 @@ alias vi="nvim"
 
 alias lzd="set -e DOCKER_HOST && lazydocker"
 alias lzd-dev="ssh -L ~/docker-remote.sock:/var/run/docker.sock ds-dev -fN && export DOCKER_HOST=unix:///Users/bigfanoftim/docker-remote.sock && sudo chmod 666 ~/docker-remote.sock && lazydocker"
+alias lzd-stage="ssh -L ~/docker-remote-stage.sock:/var/run/docker.sock ds-stage -fN && export DOCKER_HOST=unix:///Users/bigfanoftim/docker-remote-stage.sock && sudo chmod 666 ~/docker-remote-stage.sock && lazydocker"
 
 starship init fish | source
 
