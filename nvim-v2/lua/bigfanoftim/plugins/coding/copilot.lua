@@ -52,8 +52,8 @@ return {
         },
         -- Reset the chat buffer
         reset = {
-          normal = "<C-l>",
-          insert = "<C-l>",
+          normal = "<C-c>",
+          insert = "<C-c>",
         },
         -- Submit the prompt to Copilot
         submit_prompt = {
@@ -104,7 +104,15 @@ return {
       chat.setup(opts)
 
       vim.api.nvim_create_user_command("CopilotChatVisual", function(args)
-        chat.ask(args.args, { selection = select.visual })
+        chat.ask(args.args, {
+          selection = select.visual,
+          window = {
+            layout = "float",
+            width = 0.9,
+            height = 0.9,
+            -- col = 1,
+          },
+        })
       end, { nargs = "*", range = true })
 
       -- Inline chat with Copilot
@@ -240,7 +248,7 @@ return {
       -- Clear buffer and chat history
       { "<leader>al", "<cmd>CopilotChatReset<cr>",         desc = "CopilotChat - Clear buffer and chat history" },
       -- Toggle Copilot Chat Vsplit
-      { "<leader>av", "<cmd>CopilotChatToggle<cr>",        desc = "CopilotChat - Toggle" },
+      { "<leader>av", "<cmd>CopilotChatVisual<cr>",        desc = "CopilotChat - Toggle" },
     },
   },
 }
