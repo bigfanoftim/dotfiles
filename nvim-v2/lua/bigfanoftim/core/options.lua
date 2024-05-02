@@ -1,5 +1,3 @@
-vim.g.mapleader = " "
-
 local opt = vim.opt
 
 opt.conceallevel = 0
