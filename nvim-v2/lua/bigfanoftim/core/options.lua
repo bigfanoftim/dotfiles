@@ -1,6 +1,6 @@
 local opt = vim.opt
 
-opt.conceallevel = 0
+opt.conceallevel = 2
 opt.scrolloff = 999
 
 opt.relativenumber = true
