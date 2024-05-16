@@ -1,7 +1,7 @@
 return {
-  "wittyjudge/gruvbox-material.nvim",
+  "ellisonleao/gruvbox.nvim",
   config = function()
-    require("gruvbox-material").setup({})
-    vim.cmd("colorscheme gruvbox-material")
-  end,
+    require("gruvbox").setup({})
+    vim.cmd("colorscheme gruvbox")
+  end
 }

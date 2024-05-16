@@ -15,3 +15,7 @@ keymap.set("n", "<C-l>", "<C-w>l", { desc = "Go to Right Window", remap = true }
 keymap.set("n", "ss", ":split<Return>:wincmd j<Return>", opts)
 keymap.set("n", "sv", ":vsplit<Return>:wincmd w<Return>", opts)
 keymap.set("n", "sx", ":q<Return>", opts)
+
+-- Obsidian Keymaps
+keymap.set("n", "<leader>on", "<cmd>ObsidianNew<cr>", { desc = "New Note" })
+keymap.set("n", "<leader>op", "<cmd>ObsidianPasteImg<cr>", { desc = "Paste Image" })
